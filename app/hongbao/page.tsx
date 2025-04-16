@@ -213,7 +213,7 @@ export default function HongbaoPage() {
                   {/* Simplified QR Code */}
                   <div className="w-full h-full p-4 bg-white rounded-lg shadow-sm border-2 border-[#f5f3ee]">
                     <Image
-                      src="/qr-sample2.png?height=240&width=240"
+                      src="/qr-sample-current.png?height=240&width=240"
                       alt="Payment QR Code"
                       width={240}
                       height={240}
