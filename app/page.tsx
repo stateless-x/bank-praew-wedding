@@ -30,7 +30,7 @@ export default function WeddingInvitation() {
         </div>
 
         <div className="relative inline-block mb-2">
-          <h1 className="text-4xl font-bold text-white mb-1 relative z-10">Preaw & Bank</h1>
+          <h1 className="text-4xl font-bold text-white mb-1 relative z-10">Praew & Bank</h1>
           <div className="absolute -bottom-1 left-0 right-0 h-3 bg-white opacity-30 rounded-full -z-0"></div>
         </div>
 
@@ -176,7 +176,7 @@ export default function WeddingInvitation() {
                 href="tel:0626541493"
                 className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
-                Call Preaw: 062-654-1493
+                Call Praew: 062-654-1493
               </a>
               <a
                 href="tel:0979639929"
