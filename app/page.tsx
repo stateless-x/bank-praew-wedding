@@ -65,10 +65,10 @@ export default function WeddingInvitation() {
                   <Calendar className="h-4 w-4 text-maroon" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-maroon">May 25, 2025 (Sunday)</p>
-                  <p className="text-sm text-maroon"><strong>7:00 AM</strong> — Khan Mak Parade</p>
+                  <p className="text-sm font-semibold text-maroon pb-2">May 25, 2025 (Sunday)</p>
+                  <p className="text-sm text-maroon">7:00 AM — Khan Mak Parade</p>
                   <p className="text-sm text-maroon">Followed by Engagement & Tea Ceremony</p>
-                  <p className="text-sm text-maroon"><strong>11:30 AM</strong> — Wedding Cocktail</p>
+                  <p className="text-sm text-maroon">11:30 AM — Wedding Cocktail</p>
                   <p className="text-sm text-maroon">Followed by After Party 🎉</p>
                 </div>
               </div>
@@ -78,8 +78,9 @@ export default function WeddingInvitation() {
                   <MapPin className="h-4 w-4 text-maroon" />
                 </div>
                 <div>
-                  <p className="font-medium text-maroon">MOTIEN Riverside Hotel, Grand Ballroom (4th Floor)</p>
-                  <p className="text-xs text-maroon">Rama 3 Road, Bangkok</p>
+                  <p className="font-semibold text-sm text-maroon pb-1">MOTIEN Riverside Hotel</p>
+                  <p className="text-sm text-maroon">4th Floor, Grand Ballroom</p> 
+                  <p className="text-sm text-maroon">Rama 3 Road, Bangkok</p>
                   <Link
                     href="https://maps.app.goo.gl/5zB2rmjcLRwPEYfj6"
                     className="btn btn-xs bg-maroon hover:bg-maroon-light border-none text-white mt-2 gap-1 normal-case rounded-full"
@@ -170,7 +171,7 @@ export default function WeddingInvitation() {
           <div className="h-2 bg-gradient-to-r from-maroon to-coral-dark"></div>
           <div className="card-body p-4">
             <h2 className="card-title text-maroon text-lg mb-2">Questions?</h2>
-            <p className="text-xs text-maroon mb-3">If you have any questions or need assistance, please contact us:</p>
+            <p className="text-sm text-maroon mb-3">If you have any questions or need assistance, please contact us:</p>
             <div className="flex flex-col gap-2">
               <a
                 href="tel:0626541493"
