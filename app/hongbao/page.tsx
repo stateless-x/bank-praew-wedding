@@ -141,7 +141,7 @@ export default function HongbaoPage() {
       // Show success message
       toast({
         title: "Blessing sent!",
-        description: "Your message has been delivered to Preaw & Bank",
+        description: "Your message has been delivered to Praew & Bank",
         variant: "default",
       })
 
@@ -177,7 +177,7 @@ export default function HongbaoPage() {
 
         <h1 className="text-2xl font-bold text-white mb-1">Virtual Hongbao</h1>
         <p className="text-sm text-white/80 max-w-md mx-auto">
-          Send your blessings and a digital red envelope to Preaw & Bank
+          Send your blessings and a digital red envelope to Praew & Bank
         </p>
       </header>
 
@@ -223,7 +223,7 @@ export default function HongbaoPage() {
                 </div>
 
                 <div className="text-center mt-6 space-y-2">
-                  <p className="text-sm font-medium text-maroon">Bank: Preaw & Bank Wedding</p>
+                  <p className="text-sm font-medium text-maroon">Praew & Bank Wedding</p>
                   <p className="text-sm text-maroon">Account: 1234-5678-9012-3456</p>
                   <div className="flex items-center justify-center gap-2 mt-4">
                     <Sparkles className="h-3 w-3 text-coral" />

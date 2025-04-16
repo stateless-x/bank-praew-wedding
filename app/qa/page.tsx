@@ -134,7 +134,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">How do I RSVP?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Please RSVP by May 15, 2025 by calling or texting Preaw at 123-456-7890 or Bank at 098-765-4321.
+                    Please RSVP by May 15, 2025 by calling or texting Praew at 123-456-7890 or Bank at 098-765-4321.
                   </p>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function QAPage() {
                 href="tel:0626541493"
                 className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
-                Call Preaw: 062-654-1493
+                Call Praew: 062-654-1493
               </a>
               <a
                 href="tel:0979639929"
