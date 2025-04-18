@@ -243,10 +243,10 @@ export default function HongbaoPage() {
 
                 <div className="text-center mt-6 space-y-2">
                   <p className="text-sm font-medium text-maroon">Praew & Bank Wedding</p>
-                  <p className="text-sm text-maroon">Account: 1234-5678-9012-3456</p>
+                  <p className="text-sm text-maroon">Account: เลขบัญชีของแพรว</p>
                   <div className="flex items-center justify-center gap-2 mt-4">
                     <Sparkles className="h-3 w-3 text-coral" />
-                    <p className="text-xs text-maroon">In Thai tradition, amounts ending in 9 are considered lucky!</p>
+                    <p className="text-xs text-maroon">โอนมาเยอะ = เห็นหลานไว</p>
                     <Sparkles className="h-3 w-3 text-coral" />
                   </div>
                 </div>

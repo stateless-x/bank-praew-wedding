@@ -92,11 +92,21 @@ export default function VenuePage() {
                   <Clock className="h-5 w-5 text-maroon" />
                 </div>
                 <div>
-                  <p className="font-medium text-maroon">Ceremony Time</p>
-                  <p className="text-sm text-maroon">May 25, 2025</p>
-                  <p className="text-sm text-maroon"><strong>7:00 AM</strong> — Khan Mak Parade</p>
-                  <p className="text-sm text-maroon">Followed by Engagement & Tea Ceremony</p>
-                  <p className="text-sm text-maroon"><strong>11:30 AM</strong> — Wedding Cocktail</p>
+                  <p className="text-lg font-semibold text-maroon pb-2">
+                    May 25, 2025 (Sunday)
+                  </p>
+                  <p className="text-sm pb-1 text-maroon">
+                    7:00 AM — Khan Mak Parade
+                  </p>
+                  <p className="text-sm pb-1 text-maroon">
+                    Followed by Engagement & Tea Ceremony
+                  </p>
+                  <p className="text-sm pb-1 text-maroon">
+                    11:30 AM — Wedding Cocktail
+                  </p>
+                  <p className="text-sm text-maroon">
+                    Followed by After Party 🎉
+                  </p>
                 </div>
               </div>
 

@@ -112,7 +112,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">Can I bring a plus one?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Maybe?
+                    Depends
                   </p>
                 </div>
               </div>
@@ -123,6 +123,16 @@ export default function QAPage() {
                 <div className="collapse-content text-sm text-maroon">
                   <p>
                     Please RSVP by May 15, 2025 by calling or texting Praew at 062-654-1493 or Bank at 097-963-9929.
+                  </p>
+                </div>
+              </div>
+
+              <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
+                <input type="checkbox" defaultChecked={false} />
+                <div className="collapse-title font-medium text-sm text-maroon">ยืมเงินได้ไหม?</div>
+                <div className="collapse-content text-sm text-maroon">
+                  <p>
+                    ไม่ได้ค่ะ
                   </p>
                 </div>
               </div>
