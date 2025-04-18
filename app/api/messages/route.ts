@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
-import { PrismaClient } from '@prisma/client'
 
 export async function GET() {
   try {
@@ -21,35 +20,34 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { name, message, avatar } = await request.json()
+    const { name, message, avatar } = await request.json();
 
     if (!name || !message) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: "Missing required fields" },
         { status: 400 }
-      )
+      );
     }
 
-    const newMessage = await prisma.$transaction(async (tx: PrismaClient) => {
-      return await tx.message.create({
-        data: {
-          name,
-          message,
-          avatar,
-        },
-      })
-    })
+    // Remove $transaction and create directly
+    const newMessage = await prisma.message.create({
+      data: {
+        name,
+        message,
+        avatar,
+      },
+    });
 
-    return NextResponse.json(newMessage)
+    return NextResponse.json(newMessage);
   } catch (error) {
-    console.error('Error creating message:', error)
+    console.error("Error creating message:", error);
     return NextResponse.json(
-      { 
-        error: 'Failed to create message',
-        details: error instanceof Error ? error.message : 'Unknown error',
-        stack: error instanceof Error ? error.stack : undefined
+      {
+        error: "Failed to create message",
+        details: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
       },
       { status: 500 }
-    )
+    );
   }
-} 
+}
