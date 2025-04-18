@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Calendar, Clock, Heart, Map, MapPin, HelpCircle, Sparkles, Shirt } from "lucide-react"
-
+import Image from "next/image"
 export default function WeddingInvitation() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223]" data-theme="wedding">
@@ -31,14 +31,18 @@ export default function WeddingInvitation() {
 
         <div className="relative inline-block mb-2">
           <h1 className="text-4xl font-bold text-white mb-1 relative z-10">Praew & Bank</h1>
-          <div className="absolute -bottom-1 left-0 right-0 h-3 bg-white opacity-30 rounded-full -z-0"></div>
+          <div className="absolute -bottom-2 left-0 right-0 h-3 bg-white opacity-30 rounded-full -z-0"></div>
         </div>
 
         <p className="text-white mt-2 font-medium text-lg">25 May 2025</p>
 
         <div className="mt-6 max-w-[26.5rem] mx-auto bg-white/90 p-4 rounded-xl border-2 border-dashed border-white/30">
+            <div className="pb-4">
+              <Image src="bp.jpg" alt="Praew & Bank Wedding" width={1000} height={1000} className="rounded-2xl"/>
+            </div>
           <p className="text-sm text-maroon leading-relaxed">
-            With joyful hearts and lots of love, we invite you to celebrate our special day with us!
+            With joyful hearts and lots of love<br /> we invite you to celebrate our special day with us!
+            <br />
             <span className="inline-block mx-1">❤️</span>
           </p>
         </div>
@@ -65,10 +69,10 @@ export default function WeddingInvitation() {
                   <Calendar className="h-4 w-4 text-maroon" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-maroon pb-2">May 25, 2025 (Sunday)</p>
-                  <p className="text-sm text-maroon">7:00 AM — Khan Mak Parade</p>
-                  <p className="text-sm text-maroon">Followed by Engagement & Tea Ceremony</p>
-                  <p className="text-sm text-maroon">11:30 AM — Wedding Cocktail</p>
+                  <p className="text-lg font-semibold text-maroon pb-2">May 25, 2025 (Sunday)</p>
+                  <p className="text-sm pb-1 text-maroon">7:00 AM — Khan Mak Parade</p>
+                  <p className="text-sm pb-1 text-maroon">Followed by Engagement & Tea Ceremony</p>
+                  <p className="text-sm pb-1 text-maroon">11:30 AM — Wedding Cocktail</p>
                   <p className="text-sm text-maroon">Followed by After Party 🎉</p>
                 </div>
               </div>
@@ -78,22 +82,22 @@ export default function WeddingInvitation() {
                   <MapPin className="h-4 w-4 text-maroon" />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm text-maroon pb-1">MOTIEN Riverside Hotel</p>
-                  <p className="text-sm text-maroon">4th Floor, Grand Ballroom</p> 
-                  <p className="text-sm text-maroon">Rama 3 Road, Bangkok</p>
+                  <p className="font-semibold text-lg text-maroon pb-1">MOTIEN Riverside Hotel</p>
+                  <p className="text-sm pb-1 text-maroon">4th Floor, Grand Ballroom</p> 
+                  <p className="text-sm pb-2 text-maroon">Rama 3 Road, Bangkok</p>
                   <Link
                     href="https://maps.app.goo.gl/5zB2rmjcLRwPEYfj6"
-                    className="btn btn-xs bg-maroon hover:bg-maroon-light border-none text-white mt-2 gap-1 normal-case rounded-full"
+                    className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-2 gap-1 normal-case rounded-full"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Map className="h-3 w-3" /> Get directions
+                    <Map className="h-4 w-4" /> Get directions
                   </Link>
                 </div>
               </div>
 
               <div className="alert bg-[#f5f3ee] border-[#f5f3ee] rounded-xl">
-                <Shirt className="h-4 w-4 text-maroon" />
+                {/* <Shirt className="h-4 w-4 text-maroon" /> */}
                 <div>
                   <h3 className="font-medium text-maroon text-sm">Dress Code:</h3>
                   <div className="flex flex-wrap gap-2 mt-2">
@@ -175,13 +179,13 @@ export default function WeddingInvitation() {
             <div className="flex flex-col gap-2">
               <a
                 href="tel:0626541493"
-                className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
+                className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
                 Call Praew: 062-654-1493
               </a>
               <a
                 href="tel:0979639929"
-                className="btn btn-sm bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
+                className="btn btn-md bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
               >
                 Call Bank: 097-963-9929
               </a>

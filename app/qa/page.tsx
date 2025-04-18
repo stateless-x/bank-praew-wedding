@@ -70,7 +70,7 @@ export default function QAPage() {
                   </div>
                   <div className="bg-[#f5f3ee] py-3 rounded-lg mt-3">
                     <p className="text-sm text-maroon">
-                      Formal or semi-formal clothing is perfect. Suits or any outfit you’re comfortable in are welcome. Avoid white (reserved for the bride) and all-black outfits.
+                      Formal or semi-formal clothing is perfect.<br/> Suits or any outfit you’re comfortable in are welcome. Avoid white (reserved for the bride) and all-black outfits.
                     </p>
                   </div>
                 </div>
@@ -81,12 +81,12 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">Do you have a gift registry?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Your presence is our present! However, if you wish to give a gift, we have a hongbao (red envelope)
-                    option.
+                    Your presence is our present! However, if you wish to give a gift, we also have a digital hongbao (red envelope)
+                    option too.
                   </p>
                   <Link
                     href="/hongbao"
-                    className="btn btn-xs bg-maroon hover:bg-maroon-light border-none text-white mt-2 normal-case rounded-full"
+                    className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-4 normal-case rounded-full"
                   >
                     See Hongbao Options
                   </Link>
@@ -100,7 +100,7 @@ export default function QAPage() {
                   <p>Yes, free parking is available at the hotel.</p>
                   <Link
                     href="/venue"
-                    className="btn btn-xs bg-maroon hover:bg-maroon-light border-none text-white mt-2 normal-case rounded-full"
+                    className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-4 normal-case rounded-full"
                   >
                     Venue Details
                   </Link>
@@ -112,19 +112,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">Can I bring a plus one?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Due to venue capacity, we can only accommodate those listed on your invitation. Thank you for
-                    understanding.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
-                <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">Will there be vegetarian options?</div>
-                <div className="collapse-content text-sm text-maroon">
-                  <p>
-                    Yes, vegetarian options will be available. Please let us know of any dietary restrictions when you
-                    RSVP.
+                    Maybe?
                   </p>
                 </div>
               </div>
@@ -134,7 +122,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">How do I RSVP?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Please RSVP by May 15, 2025 by calling or texting Praew at 123-456-7890 or Bank at 098-765-4321.
+                    Please RSVP by May 15, 2025 by calling or texting Praew at 062-654-1493 or Bank at 097-963-9929.
                   </p>
                 </div>
               </div>
@@ -210,13 +198,13 @@ export default function QAPage() {
             <div className="flex flex-col gap-2">
               <a
                 href="tel:0626541493"
-                className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
+                className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
                 Call Praew: 062-654-1493
               </a>
               <a
                 href="tel:0979639929"
-                className="btn btn-sm bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
+                className="btn btn-md bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
               >
                 Call Bank: 097-963-9929
               </a>
