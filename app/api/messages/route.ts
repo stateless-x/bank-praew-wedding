@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
+import { PrismaClient } from '@prisma/client'
 
 export async function GET() {
   try {
@@ -29,12 +30,14 @@ export async function POST(request: Request) {
       )
     }
 
-    const newMessage = await prisma.message.create({
-      data: {
-        name,
-        message,
-        avatar,
-      },
+    const newMessage = await prisma.$transaction(async (tx: PrismaClient) => {
+      return await tx.message.create({
+        data: {
+          name,
+          message,
+          avatar,
+        },
+      })
     })
 
     return NextResponse.json(newMessage)
