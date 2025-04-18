@@ -57,7 +57,6 @@ interface Message {
   name: string
   message: string
   avatar: string
-  date: Date
   createdAt: Date
   updatedAt: Date
 }
@@ -296,7 +295,15 @@ export default function HongbaoPage() {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-maroon hover:bg-maroon-light text-white rounded-full">
+                  <Button 
+                    type="submit" 
+                    className={`w-full rounded-full ${
+                      !name || !message 
+                        ? 'bg-maroon/30 cursor-not-allowed' 
+                        : 'bg-maroon hover:bg-maroon-light'
+                    } text-white`}
+                    disabled={!name || !message}
+                  >
                     <span className="flex items-center">
                       <Send className="mr-2 h-4 w-4" /> Preview & Send
                     </span>
@@ -325,7 +332,7 @@ export default function HongbaoPage() {
                             </div>
                             <div className="flex-1 pt-1">
                               <h3 className="font-medium text-maroon">{msg.name}</h3>
-                              <p className="text-xs text-maroon mt-0.5">{new Date(msg.date).toLocaleDateString()}</p>
+                              <p className="text-xs text-maroon mt-0.5">{new Date(msg.createdAt).toLocaleDateString()}</p>
                             </div>
                           </div>
 
