@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   try {
     const { name, message, avatar } = await request.json()
 
-    if (!name || !message || !avatar) {
+    if (!name || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -41,7 +41,11 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Error creating message:', error)
     return NextResponse.json(
-      { error: 'Failed to create message' },
+      { 
+        error: 'Failed to create message',
+        details: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined
+      },
       { status: 500 }
     )
   }
