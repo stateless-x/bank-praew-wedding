@@ -46,35 +46,20 @@ const CUTE_AVATARS = [
   "🐿️",
 ]
 
-// Sample data for messages that would normally come from a database
-const INITIAL_MESSAGES = [
-  {
-    id: 1,
-    name: "Aunt Mei",
-    message: "Wishing you both a lifetime of happiness! 恭喜恭喜!",
-    avatar: "🐼",
-    date: "2025-05-20",
-  },
-  {
-    id: 2,
-    name: "Uncle Li",
-    message: "May your marriage be blessed with love and joy. 祝福你们!",
-    avatar: "🦊",
-    date: "2025-05-21",
-  },
-  {
-    id: 3,
-    name: "Cousin Jia",
-    message: "So happy for you both! Congratulations on your special day!",
-    avatar: "🐰",
-    date: "2025-05-22",
-  },
-]
-
 // Function to get a random avatar
 const getRandomAvatar = () => {
   const randomIndex = Math.floor(Math.random() * CUTE_AVATARS.length)
   return CUTE_AVATARS[randomIndex]
+}
+
+interface Message {
+  id: string
+  name: string
+  message: string
+  avatar: string
+  date: Date
+  createdAt: Date
+  updatedAt: Date
 }
 
 export default function HongbaoPage() {
@@ -84,11 +69,31 @@ export default function HongbaoPage() {
   const [name, setName] = useState("")
   const [message, setMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [messages, setMessages] = useState(INITIAL_MESSAGES)
+  const [messages, setMessages] = useState<Message[]>([])
   const [activeTab, setActiveTab] = useState(tabParam === "blessings" ? "blessings" : "send")
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [previewAvatar, setPreviewAvatar] = useState("")
   const { toast } = useToast()
+
+  // Fetch messages from MongoDB
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await fetch('/api/messages')
+        const data = await response.json()
+        setMessages(data)
+      } catch (error) {
+        console.error('Error fetching messages:', error)
+        toast({
+          title: "Error",
+          description: "Failed to load messages",
+          variant: "destructive",
+        })
+      }
+    }
+
+    fetchMessages()
+  }, [toast])
 
   // Update active tab when URL parameter changes
   useEffect(() => {
@@ -116,20 +121,27 @@ export default function HongbaoPage() {
     setShowConfirmation(true)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsSubmitting(true)
 
-    // Simulate sending the blessing
-    setTimeout(() => {
-      // Add the new message to the list
-      const newMessage = {
-        id: messages.length + 1,
-        name,
-        message,
-        avatar: previewAvatar,
-        date: new Date().toISOString().split("T")[0],
+    try {
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          message,
+          avatar: previewAvatar,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
       }
 
+      const newMessage = await response.json()
       setMessages([newMessage, ...messages])
 
       // Reset the form and close dialog
@@ -147,7 +159,15 @@ export default function HongbaoPage() {
 
       // Switch to blessing wall tab to show the new message
       setActiveTab("blessings")
-    }, 1000)
+    } catch (error) {
+      console.error('Error sending message:', error)
+      toast({
+        title: "Error",
+        description: "Failed to send your message",
+        variant: "destructive",
+      })
+      setIsSubmitting(false)
+    }
   }
 
   return (
