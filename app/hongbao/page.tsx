@@ -189,14 +189,14 @@ export default function HongbaoPage() {
       <header className="pt-8 pb-6 px-4 text-center">
         <div className="flex justify-center mb-2">
           <div className="relative">
-            <div className="text-4xl">🧧</div>
+            <div className="text-4xl">💕</div>
             <Heart className="absolute -top-2 -right-4 h-4 w-4 text-white fill-coral-light animate-pulse" />
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-white mb-1">Virtual Hongbao</h1>
-        <p className="text-sm text-white/80 max-w-md mx-auto">
-          Send your blessings and a digital red envelope to Praew & Bank
+        <h1 className="text-2xl font-bold text-white mb-1">Any kind of support is appreciated 💖</h1>
+        <p className="text-md text-white/80 max-w-md mx-auto text-center">
+          You can send your blessings and a digital envelope to support us!
         </p>
       </header>
 
@@ -208,7 +208,7 @@ export default function HongbaoPage() {
               value="send"
               className="text-sm rounded-full text-white data-[state=active]:bg-white data-[state=active]:text-maroon"
             >
-              Send Hongbao
+              Digital Envelope
             </TabsTrigger>
             <TabsTrigger
               value="blessings"
@@ -223,16 +223,16 @@ export default function HongbaoPage() {
             {/* QR Code Card - SIMPLIFIED */}
             <Card className="border-white/20 border-2 rounded-xl shadow-md mb-6 overflow-hidden bg-white">
               <div className="h-2 bg-gradient-to-r from-maroon via-coral to-maroon"></div>
-              <CardHeader className="bg-[#f5f3ee] pb-2">
-                <CardTitle className="text-maroon text-center">Scan to Send Hongbao</CardTitle>
-              </CardHeader>
+              {/* <CardHeader className="bg-[#f5f3ee] pb-2">
+                <CardTitle className="text-maroon text-center">Scan to Send Virtual Hongbao</CardTitle>
+              </CardHeader> */}
 
               <CardContent className="pt-6 pb-4">
                 <div className="relative mx-auto w-64 h-64 flex items-center justify-center">
                   {/* Simplified QR Code */}
                   <div className="w-full h-full p-4 bg-white rounded-lg shadow-sm border-2 border-[#f5f3ee]">
                     <Image
-                      src="/qr-sample-current.png?height=240&width=240"
+                      src="/preaw-qr.png?height=240&width=240"
                       alt="Payment QR Code"
                       width={240}
                       height={240}
@@ -242,11 +242,11 @@ export default function HongbaoPage() {
                 </div>
 
                 <div className="text-center mt-6 space-y-2">
-                  <p className="text-sm font-medium text-maroon">Praew & Bank Wedding</p>
-                  <p className="text-sm text-maroon">Account: เลขบัญชีของแพรว</p>
+                  <p className="text-md font-medium text-maroon">PromptPay</p>
+                  <p className="text-md text-maroon">Chunita Wongwiboonrath</p>
                   <div className="flex items-center justify-center gap-2 mt-4">
                     <Sparkles className="h-3 w-3 text-coral" />
-                    <p className="text-xs text-maroon">โอนมาเยอะ = เห็นหลานไว</p>
+                    <p className="text-sm text-maroon">Thank you for your support.<br/> We really appreciate it!</p>
                     <Sparkles className="h-3 w-3 text-coral" />
                   </div>
                 </div>
@@ -256,16 +256,16 @@ export default function HongbaoPage() {
 
           {/* Blessing Wall Tab */}
           <TabsContent value="blessings">
-            <div className="text-center mb-4">
+            {/* <div className="text-center mb-4">
               <p className="text-sm text-white/80">Messages of love and good wishes from family and friends</p>
-            </div>
+            </div> */}
 
             {/* Send Blessing Form - MOVED TO BLESSING WALL */}
             <Card className="border-white/20 border-2 rounded-xl shadow-md mb-6 overflow-hidden bg-white">
               <div className="h-2 bg-gradient-to-r from-coral via-maroon to-coral"></div>
-              <CardHeader className="bg-[#f5f3ee] pb-2">
+              {/* <CardHeader className="bg-[#f5f3ee] pb-2">
                 <CardTitle className="text-maroon text-center">Leave Your Blessing</CardTitle>
-              </CardHeader>
+              </CardHeader> */}
 
               <CardContent className="pt-4">
                 <form onSubmit={handlePreview} className="space-y-4">
@@ -284,13 +284,13 @@ export default function HongbaoPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-maroon">
-                      Your Blessing
+                      Your Message 
                     </Label>
                     <Textarea
                       id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Write your blessing or congratulations..."
+                      placeholder="Leave your blessings here.."
                       className="min-h-[100px] border-[#f5f3ee] focus-visible:ring-maroon"
                     />
                   </div>

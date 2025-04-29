@@ -74,9 +74,9 @@ export default function WeddingInvitation() {
           </div>
           <p className="text-sm text-maroon leading-relaxed">
             With joyful hearts and lots of love
-            <br /> we invite you to celebrate our special day with us!
+            <br /> we invite you to celebrate our special day with us! ❤️
             <br />
-            <span className="inline-block mx-1">❤️</span>
+            <span className="inline-block mx-1 font-bold">#PraewBankForeverMore</span>
           </p>
         </div>
       </header>

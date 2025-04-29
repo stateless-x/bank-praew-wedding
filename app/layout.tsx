@@ -7,7 +7,7 @@ import { NavigationBar } from "@/components/navigation-bar"
 const quicksand = Quicksand({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Preaw & Bank Wedding Invitation",
+  title: "Praew & Bank Wedding Invitation",
   description: "Join us to celebrate our special day",
     generator: 'v0.dev'
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Calendar, Gift, MapPin, HelpCircle } from "lucide-react"
+import { Calendar, Gift, MapPin, HelpCircle, Image } from "lucide-react"
 
 export function NavigationBar() {
   const pathname = usePathname()
@@ -42,10 +42,16 @@ export function NavigationBar() {
       emoji: "🏫",
     },
     {
-      name: "Hongbao",
+      name: "Gallery",
+      href: "https://drive.google.com/drive/folders/1VYYBEbXUi8ze4CzioeBBVHcEWd_On3MA?usp=drive_link",
+      icon: Image,
+      emoji: "📸",
+    },
+    {
+      name: "Bless Us",
       href: "/hongbao",
       icon: Gift,
-      emoji: "🧧",
+      emoji: "💘",
     },
     {
       name: "Q&A",

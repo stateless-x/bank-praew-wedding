@@ -88,7 +88,7 @@ export default function QAPage() {
                     href="/hongbao"
                     className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-4 normal-case rounded-full"
                   >
-                    See Hongbao Options
+                    Send Digital Envelope
                   </Link>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">Can I bring a plus one?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Depends
+                    Contact us to discuss this.
                   </p>
                 </div>
               </div>
@@ -122,17 +122,17 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">How do I RSVP?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Please RSVP by May 15, 2025 by calling or texting Praew at 062-654-1493 or Bank at 097-963-9929.
+                    Please RSVP as soon as possible by calling or texting Praew at 062-654-1493 or Bank at 097-963-9929.
                   </p>
                 </div>
               </div>
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">ยืมเงินได้ไหม?</div>
+                <div className="collapse-title font-medium text-sm text-maroon">What's the style of the event you are hosting?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    ไม่ได้ค่ะ
+                    We are hosting a cocktail-style celebration 🥂
                   </p>
                 </div>
               </div>
