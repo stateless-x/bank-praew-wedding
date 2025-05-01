@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Sparkles } from "lucide-react"
+import { Sparkles, ArrowRight } from "lucide-react"
 
 export function PromotionalBanner() {
   const [isVisible, setIsVisible] = useState(true)
@@ -16,37 +16,40 @@ export function PromotionalBanner() {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
       className="mt-8 mb-6"
     >
       <div
-        className="bg-white/80 rounded-xl shadow-sm overflow-hidden border border-[#f5f3ee]"
-        data-theme="wedding"
+        className="bg-gradient-to-br from-[#f8f4ed] to-[#f5f3ee] rounded-2xl shadow-xl overflow-hidden border border-[#e8e4dd]"
       >
-        <div className="h-0.5 bg-gradient-to-r from-maroon/20 via-coral/20 to-maroon/20"></div>
-        <div className="p-3 flex items-center gap-2">
-          <div className="flex-shrink-0">
-            <Sparkles className="h-4 w-4 text-maroon/70" />
-          </div>
-          <div className="flex-grow">
-            <p className="text-xs text-maroon/80">
-              Craft a wedding app to elevate your guests' experience at an affordable price with Bangkok's BrainFried.co team!
-            </p>
+        <div className="p-5">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0">
+              <div className="bg-[#761213] p-2 rounded-xl">
+                <Sparkles className="h-5 w-5 text-white" />
+              </div>
+            </div>
+            <div className="flex-grow">
+              <p className="text-sm text-[#761213] font-medium mb-2">
+                Craft a wedding app to elevate your guests' experience at an affordable price with Bangkok's BrainFried.co team!
+              </p>
+              <button
+                onClick={handleClick}
+                className="group flex items-center gap-1 text-[#761213] hover:text-[#8a2223] transition-colors"
+              >
+                <span className="text-sm font-semibold">Book a free consultation</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
             <button
-              onClick={handleClick}
-              className="mt-1 text-[10px] text-coral/80 hover:text-maroon/80 transition-colors"
+              onClick={() => setIsVisible(false)}
+              className="text-[#b0b1b0] hover:text-[#761213] transition-colors text-sm"
             >
-              Book a free consultation today!
+              ✕
             </button>
           </div>
-          <button
-            onClick={() => setIsVisible(false)}
-            className="text-gray-400/60 hover:text-maroon/60 transition-colors text-xs"
-          >
-            ✕
-          </button>
         </div>
       </div>
     </motion.div>
