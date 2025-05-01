@@ -8,9 +8,7 @@ const quicksand = Quicksand({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Praew & Bank Wedding Invitation",
-  description: "Join us to celebrate our special day",
-    generator: 'v0.dev'
-}
+  description: "Join us to celebrate our special day"}
 
 export default function RootLayout({
   children,
