@@ -22,22 +22,22 @@ export function PromotionalBanner() {
       className="mt-8 mb-6"
     >
       <div
-        className="bg-gradient-to-br from-[#f8f4ed] to-[#f5f3ee] rounded-2xl shadow-xl overflow-hidden border border-[#e8e4dd]"
+        className="bg-[#1a1a1a] rounded-2xl shadow-2xl overflow-hidden border border-[#2a2a2a]"
       >
         <div className="p-5">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0">
-              <div className="bg-[#761213] p-2 rounded-xl">
-                <Sparkles className="h-5 w-5 text-white" />
+              <div className="bg-[#ffe042] p-2 rounded-xl">
+                <Sparkles className="h-5 w-5 text-[#1a1a1a]" />
               </div>
             </div>
             <div className="flex-grow">
-              <p className="text-sm text-[#761213] font-medium mb-2">
+              <p className="text-sm text-white font-medium mb-2">
                 Craft a wedding app to elevate your guests' experience at an affordable price with Bangkok's BrainFried.co team!
               </p>
               <button
                 onClick={handleClick}
-                className="group flex items-center gap-1 text-[#761213] hover:text-[#8a2223] transition-colors"
+                className="group flex items-center gap-1 text-[#ffe042] hover:text-[#bda52a] transition-colors"
               >
                 <span className="text-sm font-semibold">Book a free consultation</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -45,7 +45,7 @@ export function PromotionalBanner() {
             </div>
             <button
               onClick={() => setIsVisible(false)}
-              className="text-[#b0b1b0] hover:text-[#761213] transition-colors text-sm"
+              className="text-[#666666] hover:text-white transition-colors text-sm"
             >
               ✕
             </button>
