@@ -10,6 +10,8 @@ import {
   Shirt,
 } from "lucide-react";
 import Image from "next/image";
+import { PromotionalBanner } from "@/components/promotional-banner";
+
 export default function WeddingInvitation() {
   return (
     <div
@@ -82,7 +84,7 @@ export default function WeddingInvitation() {
       </header>
 
       {/* Main content */}
-      <main className="px-4 pb-20 max-w-md mx-auto">
+      <main className="px-4 pb-4 max-w-md mx-auto">
         {/* Blessing Wall Card */}
         <div className="card bg-white shadow-md mb-6 overflow-hidden border-2 border-white/20 rounded-2xl">
           <div className="h-2 bg-gradient-to-r from-coral via-maroon to-coral"></div>
@@ -225,6 +227,9 @@ export default function WeddingInvitation() {
               </a>
             </div>
           </div>
+        </div>
+        <div>
+          <PromotionalBanner />
         </div>
       </main>
     </div>

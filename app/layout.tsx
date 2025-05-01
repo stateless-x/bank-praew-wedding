@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={quicksand.className}>
         {children}
         <NavigationBar />
-        <div className="h-16 bg-[#8a2223]"></div> {/* Spacer for fixed navigation */}
+        <div className="bg-[#8a2223]"></div> {/* Spacer for fixed navigation */}
       </body>
     </html>
   )

@@ -21,6 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { PromotionalBanner } from "@/components/promotional-banner"
 
 // Cute cartoon avatars for blessing wall
 const CUTE_AVATARS = [
@@ -201,7 +202,7 @@ export default function HongbaoPage() {
       </header>
 
       {/* Main content */}
-      <main className="px-4 max-w-md mx-auto">
+      <main className="px-4 pb-8 max-w-md mx-auto">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-6 rounded-full p-1 bg-white/20">
             <TabsTrigger
@@ -365,6 +366,11 @@ export default function HongbaoPage() {
             </div>
           </TabsContent>
         </Tabs>
+        { activeTab === "send" && (
+          <div className="pb-6">
+          <PromotionalBanner />
+        </div>
+        )}
       </main>
 
       {/* Confirmation Dialog */}
