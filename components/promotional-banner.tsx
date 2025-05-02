@@ -32,14 +32,17 @@ export function PromotionalBanner() {
               </div>
             </div>
             <div className="flex-grow">
-              <p className="text-sm text-white font-medium mb-2">
-                Craft a wedding app to elevate your guests' experience at an affordable price with Bangkok's BrainFried.co team!
+              <h3 className="text-sm text-white font-semibold mb-1">
+                This app was made by BrainFried.co 🧠💥
+              </h3>
+              <p className="text-sm text-white/80 mb-2">
+                Need one for your own wedding or startup? We got you.
               </p>
               <button
                 onClick={handleClick}
                 className="group flex items-center gap-1 text-[#ffe042] hover:text-[#bda52a] transition-colors"
               >
-                <span className="text-sm font-semibold">Book a free consultation</span>
+                <span className="text-sm font-semibold">Book a Free Consult</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>

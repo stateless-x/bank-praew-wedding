@@ -6,6 +6,7 @@ import { Heart, MapPin, Navigation, Clock, Info, ExternalLink, Sparkles } from "
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
+import { PromotionalBanner } from "@/components/promotional-banner"
 
 export default function VenuePage() {
   const { isMobile, isIOS } = useMobile()
@@ -208,6 +209,9 @@ export default function VenuePage() {
             </div>
           </CardContent>
         </Card>
+        <div>
+          <PromotionalBanner />
+        </div>
       </main>
     </div>
   )

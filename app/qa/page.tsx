@@ -1,3 +1,4 @@
+import { PromotionalBanner } from "@/components/promotional-banner"
 import { Heart, HelpCircle } from "lucide-react"
 import Link from "next/link"
 
@@ -119,16 +120,6 @@ export default function QAPage() {
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">How do I RSVP?</div>
-                <div className="collapse-content text-sm text-maroon">
-                  <p>
-                    Please RSVP as soon as possible by calling or texting Praew at 062-654-1493 or Bank at 097-963-9929.
-                  </p>
-                </div>
-              </div>
-
-              <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
-                <input type="checkbox" defaultChecked={false} />
                 <div className="collapse-title font-medium text-sm text-maroon">What's the style of the event you are hosting?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
@@ -220,6 +211,9 @@ export default function QAPage() {
               </a>
             </div>
           </div>
+        </div>
+        <div>
+          <PromotionalBanner />
         </div>
       </main>
     </div>
