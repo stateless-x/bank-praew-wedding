@@ -71,6 +71,7 @@ const config = {
         float: "float 3s ease-in-out infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
         heartbeat: "heartbeat 1.5s ease-in-out infinite",
+        "wiggle-pause": "wiggle-pause 5s ease-in-out infinite",
       },
       keyframes: {
         float: {
@@ -84,6 +85,15 @@ const config = {
         heartbeat: {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.1)" },
+        },
+        "wiggle-pause": {
+          "0%, 4%": { transform: "rotate(-3deg)" },
+          "2%": { transform: "rotate(3deg)" },
+          "4%, 8%": { transform: "rotate(-3deg)" },
+          "6%": { transform: "rotate(3deg)" },
+          "8%, 12%": { transform: "rotate(-3deg)" },
+          "10%": { transform: "rotate(3deg)" },
+          "12%, 100%": { transform: "rotate(0deg)" },
         },
       },
       borderRadius: {

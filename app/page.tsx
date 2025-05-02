@@ -86,7 +86,7 @@ export default function WeddingInvitation() {
       {/* Main content */}
       <main className="px-4 pb-4 max-w-md mx-auto">
         {/* Blessing Wall Card */}
-        <div className="card bg-white shadow-md mb-6 overflow-hidden border-2 border-white/20 rounded-2xl">
+        <div className="card bg-white shadow-md mb-6 overflow-hidden border-2 border-white/20 rounded-2xl animate-wiggle-pause">
           <div className="h-2 bg-gradient-to-r from-coral via-maroon to-coral"></div>
           <div className="card-body p-4">
             <div className="flex items-center justify-between mb-2">
