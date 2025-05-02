@@ -228,7 +228,7 @@ export default function WeddingInvitation() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="pb-4 md:pb-0">
           <PromotionalBanner />
         </div>
       </main>
