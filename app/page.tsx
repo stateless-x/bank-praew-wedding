@@ -67,7 +67,7 @@ export default function WeddingInvitation() {
         <div className="mt-6 max-w-[26.5rem] mx-auto bg-white/90 p-4 rounded-xl border-2 border-dashed border-white/30">
           <div className="pb-4">
             <Image
-              src="pb-home.png"
+              src="pb-home-v2.png"
               alt="Praew & Bank Wedding"
               width={1000}
               height={1000}
