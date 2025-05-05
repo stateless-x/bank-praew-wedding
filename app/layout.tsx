@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Quicksand } from "next/font/google"
 import "./globals.css"
 import { NavigationBar } from "@/components/navigation-bar"
+import Script from "next/script"
 
 const quicksand = Quicksand({ subsets: ["latin"] })
 
@@ -17,6 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="wedding">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-40WGV7ZWKK"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-40WGV7ZWKK');
+          `}
+        </Script>
+      </head>
       <body className={quicksand.className}>
         {children}
         <NavigationBar />
@@ -25,6 +40,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'
