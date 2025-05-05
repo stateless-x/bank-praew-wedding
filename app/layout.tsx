@@ -10,6 +10,9 @@ const quicksand = Quicksand({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Praew & Bank Wedding — Powered by Brainfried.co",
   description: "A custom wedding app for Praew & Bank · May 25, 2025 · Built by Brainfried.co — Thailand-based team for tailored web apps & systems.",
+  icons: {
+    icon: '/favicon.svg?v=2',
+  },
   openGraph: {
     title: "Praew & Bank Wedding",
     description: "Custom wedding app for Praew & Bank · Built by Brainfried.co — Thailand-based team for web apps & systems",
@@ -33,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="wedding">
       <head>
+        <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-40WGV7ZWKK"
           strategy="afterInteractive"
