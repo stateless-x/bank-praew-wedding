@@ -72,6 +72,7 @@ const config = {
         wiggle: "wiggle 1s ease-in-out infinite",
         heartbeat: "heartbeat 1.5s ease-in-out infinite",
         "wiggle-pause": "wiggle-pause 5s ease-in-out infinite",
+        "gradient-x": "gradient-x 3s ease infinite",
       },
       keyframes: {
         float: {
@@ -94,6 +95,10 @@ const config = {
           "8%, 12%": { transform: "rotate(-3deg)" },
           "10%": { transform: "rotate(3deg)" },
           "12%, 100%": { transform: "rotate(0deg)" },
+        },
+        "gradient-x": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
         },
       },
       borderRadius: {

@@ -78,7 +78,14 @@ export default function WeddingInvitation() {
             With joyful hearts and lots of love
             <br /> we invite you to celebrate our special day with us! ❤️
             <br />
-            <span className="inline-block mx-1 font-bold">#PraewBankForeverMore</span>
+            <Link 
+              href="https://www.instagram.com/explore/search/keyword/?q=%23praewbankforevermore" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block mx-1 font-bold"
+            >
+              <span className="bg-gradient-to-r from-coral via-maroon to-coral-dark bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x hover:from-maroon hover:via-coral hover:to-maroon transition-all duration-5000">#PraewBankForeverMore</span>
+            </Link>
           </p>
         </div>
       </header>
