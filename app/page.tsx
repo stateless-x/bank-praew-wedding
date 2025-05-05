@@ -11,6 +11,25 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { PromotionalBanner } from "@/components/promotional-banner";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Praew & Bank Wedding — Powered by Brainfried.co",
+  description: "A custom wedding app for Praew & Bank · May 25, 2025 · Built by Brainfried.co — Thailand-based team for tailored web apps & systems.",
+  openGraph: {
+    title: "Praew & Bank Wedding",
+    description: "Custom wedding app for Praew & Bank · Built by Brainfried.co — Thailand-based team for web apps & systems",
+    images: [
+      {
+        url: "/pb-home-v2.png",
+        width: 1000,
+        height: 1000,
+        alt: "Praew & Bank Wedding",
+      },
+    ],
+  },
+};
+
 
 export default function WeddingInvitation() {
   return (
@@ -228,7 +247,7 @@ export default function WeddingInvitation() {
             </div>
           </div>
         </div>
-        <div className="pb-4 md:pb-0">
+        <div className="pb-6 md:pb-0">
           <PromotionalBanner />
         </div>
       </main>
