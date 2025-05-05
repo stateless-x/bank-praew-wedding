@@ -7,7 +7,11 @@ import Script from "next/script"
 
 const quicksand = Quicksand({ subsets: ["latin"] })
 
+// Get the site URL from environment variable or use a default
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://praewbankforevermore.love';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Praew & Bank Wedding — Powered by Brainfried.co",
   description: "A custom wedding app for Praew & Bank · May 25, 2025 · Built by Brainfried.co — Thailand-based team for tailored web apps & systems.",
   icons: {
@@ -18,12 +22,21 @@ export const metadata: Metadata = {
     description: "Custom wedding app for Praew & Bank · Built by Brainfried.co — Thailand-based team for web apps & systems",
     images: [
       {
-        url: "/pb-home-v2.png",
+        url: '/pb-home-v2.png',
         width: 1000,
         height: 1000,
         alt: "Praew & Bank Wedding",
       },
     ],
+    siteName: "Praew & Bank Wedding",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Praew & Bank Wedding",
+    description: "Custom wedding app for Praew & Bank · Built by Brainfried.co — Thailand-based team for web apps & systems",
+    images: ['/pb-home-v2.png'],
   },
 };
 
