@@ -74,19 +74,19 @@ export default function WeddingInvitation() {
               className="rounded-2xl"
             />
           </div>
-          <p className="text-sm text-maroon leading-relaxed">
+          <p className="text-sm text-maroon leading-relaxed pb-2">
             With joyful hearts and lots of love
             <br /> we invite you to celebrate our special day with us! ❤️
             <br />
-            <Link 
+          </p>
+          <Link 
               href="https://www.instagram.com/explore/search/keyword/?q=%23praewbankforevermore" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-block mx-1 font-bold"
+              className="inline-block mx-1 font-bold text-[18px] text-maroon leading-relaxed"
             >
-              <span className="bg-gradient-to-r from-coral via-maroon to-coral-dark bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x hover:from-maroon hover:via-coral hover:to-maroon transition-all duration-5000">#PraewBankForeverMore</span>
+              <span className=" bg-gradient-to-r from-coral via-maroon to-coral-dark bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x hover:from-maroon hover:via-coral hover:to-maroon transition-all duration-5000">#PraewBankForeverMore</span>
             </Link>
-          </p>
         </div>
       </header>
 
