@@ -113,7 +113,7 @@ export default function QAPage() {
                 <div className="collapse-title font-medium text-sm text-maroon">Can I bring a plus one?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    Contact us to discuss this.
+                    Of course! We'd love to have you bring a plus one. 🤝 
                   </p>
                 </div>
               </div>
