@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import {
   Calendar,
@@ -11,8 +13,11 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { PromotionalBanner } from "@/components/promotional-banner";
+import { useTranslation } from 'react-i18next';
 
 export default function WeddingInvitation() {
+  const { t } = useTranslation();
+
   return (
     <div
       className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223]"
@@ -75,8 +80,7 @@ export default function WeddingInvitation() {
             />
           </div>
           <p className="text-sm text-maroon leading-relaxed pb-2">
-            With joyful hearts and lots of love
-            <br /> we invite you to celebrate our special day with us! ❤️
+            {t('weddingInvitation')}
             <br />
           </p>
           <Link 
@@ -98,20 +102,20 @@ export default function WeddingInvitation() {
           <div className="card-body p-4">
             <div className="flex items-center justify-between mb-2">
               <h2 className="card-title text-maroon flex items-center gap-2 text-lg">
-                <Heart className="h-4 w-4" /> Blessing Wall
+                <Heart className="h-4 w-4" /> {t('blessingWall')}
               </h2>
               <div className="badge bg-[#f5f3ee] border-[#f5f3ee] p-3">
                 <Sparkles className="h-3 w-3 text-maroon" />
               </div>
             </div>
             <p className="text-sm text-maroon mb-4">
-            Got a sweet message or inside joke? <br /> Share it with Praew & Bank on their special day 💌
+              {t('blessingWallDescription')}
             </p>
             <Link
               href="/hongbao?tab=blessings"
               className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full w-full"
             >
-              Send Your Blessing
+              {t('sendYourBlessing')}
             </Link>
           </div>
         </div>
@@ -121,7 +125,7 @@ export default function WeddingInvitation() {
           <div className="card-body p-4">
             <div className="flex items-center justify-between mb-2">
               <h2 className="card-title text-maroon flex items-center gap-2 text-lg">
-                <Clock className="h-4 w-4" /> Wedding Schedule
+                <Clock className="h-4 w-4" /> {t('weddingSchedule')}
               </h2>
               <div className="badge bg-[#f5f3ee] border-[#f5f3ee] p-3">
                 <Heart className="h-3 w-3 fill-maroon" />
@@ -135,19 +139,19 @@ export default function WeddingInvitation() {
                 </div>
                 <div>
                   <p className="text-lg font-semibold text-maroon pb-2">
-                    May 25, 2025 (Sunday)
+                    {t('weddingDate')}
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    7:00 AM — Khan Mak Parade
+                    {t('khanMakParade')}
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    Followed by Engagement & Tea Ceremony
+                    {t('engagementCeremony')}
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    11:30 AM — Wedding Cocktail
+                    {t('weddingCocktail')}
                   </p>
                   <p className="text-sm text-maroon">
-                    Followed by After Party 🎉
+                    {t('afterParty')}
                   </p>
                 </div>
               </div>
@@ -158,13 +162,13 @@ export default function WeddingInvitation() {
                 </div>
                 <div>
                   <p className="font-semibold text-lg text-maroon pb-1">
-                    MOTIEN Riverside Hotel
+                    {t('hotelName')}
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    4th Floor, Grand Ballroom
+                    {t('ballroom')}
                   </p>
                   <p className="text-sm pb-2 text-maroon">
-                    Rama 3 Road, Bangkok
+                    {t('location')}
                   </p>
                   <Link
                     href="https://maps.app.goo.gl/5zB2rmjcLRwPEYfj6"
@@ -172,7 +176,7 @@ export default function WeddingInvitation() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Map className="h-4 w-4" /> Get directions
+                    <Map className="h-4 w-4" /> {t('getDirections')}
                   </Link>
                 </div>
               </div>
@@ -181,7 +185,7 @@ export default function WeddingInvitation() {
                 {/* <Shirt className="h-4 w-4 text-maroon" /> */}
                 <div>
                   <h3 className="font-medium text-maroon text-sm">
-                    Dress Code:
+                    {t('dressCode')}
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
                     <div
@@ -215,22 +219,22 @@ export default function WeddingInvitation() {
         <div className="card bg-white shadow-md mb-10 overflow-hidden border-2 border-white/20 rounded-2xl">
           <div className="h-2 bg-gradient-to-r from-maroon to-coral-dark"></div>
           <div className="card-body p-4">
-            <h2 className="card-title text-maroon text-lg mb-2">Questions?</h2>
+            <h2 className="card-title text-maroon text-lg mb-2">{t('questions')}</h2>
             <p className="text-sm text-maroon mb-3">
-              If you have any questions or need assistance, please contact us:
+              {t('questionsDescription')}
             </p>
             <div className="flex flex-col gap-2">
               <a
                 href="tel:0626541493"
                 className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
-                Call Praew: 062-654-1493
+                {t('callPraew')}
               </a>
               <a
                 href="tel:0979639929"
                 className="btn btn-md bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
               >
-                Call Bank: 097-963-9929
+                {t('callBank')}
               </a>
             </div>
           </div>

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Quicksand } from "next/font/google"
 import "./globals.css"
 import { NavigationBar } from "@/components/navigation-bar"
+import { I18nProvider } from "@/components/i18n-provider"
 import Script from "next/script"
 
 const quicksand = Quicksand({ subsets: ["latin"] })
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
       },
     ],
     siteName: "Praew & Bank Wedding",
-    locale: "en_US",
+    locale: "th_TH",
     type: "website",
   },
   twitter: {
@@ -47,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-theme="wedding">
+    <html lang="th" data-theme="wedding">
       <head>
         <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
         <Script
@@ -64,8 +65,10 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={quicksand.className}>
-        {children}
-        <NavigationBar />
+        <I18nProvider>
+          {children}
+          <NavigationBar />
+        </I18nProvider>
         <div className="bg-[#8a2223]"></div> {/* Spacer for fixed navigation */}
       </body>
     </html>
