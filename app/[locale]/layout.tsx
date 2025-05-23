@@ -13,10 +13,12 @@ interface LocaleLayoutProps {
   }
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: LocaleLayoutProps) {
+  const { locale } = await params
+
   // Check if the locale is valid
   if (!locales.includes(locale as Locale)) {
     notFound()
