@@ -12,7 +12,13 @@ export function NavigationBar() {
   const params = useParams()
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure translations are only used after mounting
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Get current language from params
   const currentLocale = (params?.locale as string) || 'th'
@@ -37,37 +43,37 @@ export function NavigationBar() {
 
   const navItems = [
     {
-      name: t("schedule"),
+      name: isMounted ? t("schedule") : "กำหนดการ",
       href: `/${currentLocale}`,
       icon: Calendar,
       emoji: "📅",
     },
     {
-      name: t("venue"),
+      name: isMounted ? t("venue") : "สถานที่จัดงาน",
       href: `/${currentLocale}/venue`,
       icon: MapPin,
       emoji: "🏫",
     },
     {
-      name: t("gallery"),
+      name: isMounted ? t("gallery") : "แกลเลอรี",
       href: "https://drive.google.com/drive/folders/1VYYBEbXUi8ze4CzioeBBVHcEWd_On3MA?usp=drive_link",
       icon: Image,
       emoji: "📸",
     },
     {
-      name: t("hongbao"),
+      name: isMounted ? t("hongbao") : "ซองแดง",
       href: `/${currentLocale}/hongbao`,
       icon: Gift,
       emoji: "💰",
     },
     {
-      name: t("blessings"),
+      name: isMounted ? t("blessings") : "คำอวยพรจากใจ",
       href: `/${currentLocale}/blessings`,
       icon: Heart,
       emoji: "💌",
     },
     {
-      name: t("qa"),
+      name: isMounted ? t("qa") : "ถาม-ตอบ",
       href: `/${currentLocale}/qa`,
       icon: HelpCircle,
       emoji: "❓",
