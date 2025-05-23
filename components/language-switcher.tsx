@@ -2,10 +2,14 @@
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter, usePathname, useParams } from 'next/navigation';
 import { Globe } from 'lucide-react';
 
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -16,7 +20,14 @@ export function LanguageSwitcher() {
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode);
+    // Get current locale from params
+    const currentLocale = (params?.locale as string) || 'th';
+    
+    // Remove current locale from pathname and replace with new one
+    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '') || '/';
+    
+    // Navigate to new language URL
+    router.push(`/${langCode}${pathWithoutLocale}`);
     setIsOpen(false);
   };
 

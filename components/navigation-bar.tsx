@@ -2,16 +2,20 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Calendar, Gift, MapPin, HelpCircle, Image } from "lucide-react"
+import { usePathname, useParams } from "next/navigation"
+import { Calendar, Gift, MapPin, HelpCircle, Image, Heart } from "lucide-react"
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from './language-switcher'
 
 export function NavigationBar() {
   const pathname = usePathname()
+  const params = useParams()
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  // Get current language from params
+  const currentLocale = (params?.locale as string) || 'th'
 
   // Handle scroll to hide/show navigation on mobile
   useEffect(() => {
@@ -34,13 +38,13 @@ export function NavigationBar() {
   const navItems = [
     {
       name: t("schedule"),
-      href: "/",
+      href: `/${currentLocale}`,
       icon: Calendar,
       emoji: "📅",
     },
     {
       name: t("venue"),
-      href: "/venue",
+      href: `/${currentLocale}/venue`,
       icon: MapPin,
       emoji: "🏫",
     },
@@ -51,14 +55,20 @@ export function NavigationBar() {
       emoji: "📸",
     },
     {
-      name: t("blessUs"),
-      href: "/hongbao",
+      name: t("hongbao"),
+      href: `/${currentLocale}/hongbao`,
       icon: Gift,
-      emoji: "💘",
+      emoji: "💰",
+    },
+    {
+      name: t("blessings"),
+      href: `/${currentLocale}/blessings`,
+      icon: Heart,
+      emoji: "💌",
     },
     {
       name: t("qa"),
-      href: "/qa",
+      href: `/${currentLocale}/qa`,
       icon: HelpCircle,
       emoji: "❓",
     },
@@ -83,21 +93,21 @@ export function NavigationBar() {
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
-              (item.href === "/" && pathname === "/") ||
-              (item.href !== "/" && pathname.startsWith(item.href))
+              (item.href === `/${currentLocale}` && pathname === `/${currentLocale}`) ||
+              (item.href !== `/${currentLocale}` && pathname.startsWith(item.href))
 
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex flex-col items-center py-2 px-2 ${
+                className={`flex flex-col items-center py-2 px-1 ${
                   isActive ? "text-maroon" : "text-gray hover:text-maroon-light"
                 }`}
               >
                 <div className={`p-1.5 rounded-full mb-1 ${isActive ? "bg-[#f5f3ee]" : ""}`}>
                   <div className="text-lg">{item.emoji}</div>
                 </div>
-                <span className="text-[10px] font-medium">{item.name}</span>
+                <span className="text-[10px] font-medium text-center">{item.name}</span>
                 {isActive && <span className="absolute bottom-1 h-1 w-8 bg-maroon rounded-full"></span>}
               </Link>
             )

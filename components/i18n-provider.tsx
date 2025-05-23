@@ -1,17 +1,23 @@
 "use client"
 
-import { useEffect } from 'react';
-import '@/lib/i18n';
+import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
+import '@/lib/i18n'
 
-interface I18nProviderProps {
-  children: React.ReactNode;
-}
+export function I18nProvider({ children }: { children: React.ReactNode }) {
+  const params = useParams()
+  const { i18n } = useTranslation()
+  
+  // Get locale from params (for dynamic routes) or fallback to URL parsing
+  const locale = (params?.locale as string) || 'th'
 
-export function I18nProvider({ children }: I18nProviderProps) {
   useEffect(() => {
-    // Import i18n to initialize it
-    import('@/lib/i18n');
-  }, []);
+    // Set language if it's different from current
+    if (['th', 'en'].includes(locale) && i18n.language !== locale) {
+      i18n.changeLanguage(locale)
+    }
+  }, [locale, i18n])
 
-  return <>{children}</>;
+  return <>{children}</>
 } 
