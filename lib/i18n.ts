@@ -15,7 +15,7 @@ const resources = {
 
       // Language Selection
       "thai": "ไทย",
-      "english": "อังกฤษ",
+      "english": "English",
       "selectLanguage": "เลือกภาษา",
 
       // Common
@@ -147,7 +147,7 @@ const resources = {
       "qa": "Q&A",
 
       // Language Selection
-      "thai": "Thai",
+      "thai": "ไทย",
       "english": "English",
       "selectLanguage": "Select Language",
 
