@@ -7,16 +7,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
 import { PromotionalBanner } from "@/components/promotional-banner"
-import { useTranslation } from 'react-i18next'
 
 export default function VenuePage() {
-  const { t } = useTranslation()
   const { isMobile, isIOS } = useMobile()
   const [isMapLoaded, setIsMapLoaded] = useState(false)
 
   // Venue coordinates
-  const venueName = t('venueName')
-  const venueAddress = t('venueAddress')
+  const venueName = "MOTIEN Riverside Hotel, Grand Ballroom (4th Floor)"
+  const venueAddress = "Rama 3 Road, Bangkok"
   const googleMapsUrl = "https://maps.app.goo.gl/5zB2rmjcLRwPEYfj6"
   const appleMapsUrl = "https://maps.apple.com/place?place-id=IFC417482416A60B1&address=372+Rama+3+Rd.%2C+Bang+Khlo%2C+Phra+Nakhon+Si+Bang+Kho+Laem%2C+Bangkok+10120%2C+Thailand&coordinate=13.688173%2C100.507644&name=Montien+Riverside+Hotel+Bangkok&_provider=9902"
 
@@ -63,8 +61,8 @@ export default function VenuePage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-white mb-1">{t('weddingVenue')}</h1>
-        <p className="text-sm text-white/80 max-w-md mx-auto">{t('findYourWayToOurSpecialDay')}</p>
+        <h1 className="text-2xl font-bold text-white mb-1">Wedding Venue</h1>
+        <p className="text-sm text-white/80 max-w-md mx-auto">Find your way to our special day</p>
       </header>
 
       {/* Main content */}
@@ -74,7 +72,7 @@ export default function VenuePage() {
           <div className="h-2 bg-gradient-to-r from-maroon via-coral to-maroon"></div>
           <CardHeader className="bg-[#f5f3ee] pb-2">
             <CardTitle className="text-maroon flex items-center gap-2">
-              <MapPin className="h-5 w-5" /> {t('venueInformation')}
+              <MapPin className="h-5 w-5" /> Venue Information
             </CardTitle>
           </CardHeader>
 
@@ -96,27 +94,27 @@ export default function VenuePage() {
                 </div>
                 <div>
                   <p className="text-lg font-semibold text-maroon pb-2">
-                    {t('weddingDate')}
+                    May 25, 2025 (Sunday)
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    {t('khanMakParade')}
+                    7:00 AM — Khan Mak Parade
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    {t('engagementCeremony')}
+                    Followed by Engagement & Tea Ceremony
                   </p>
                   <p className="text-sm pb-1 text-maroon">
-                    {t('weddingCocktail')}
+                    11:30 AM — Wedding Cocktail
                   </p>
                   <p className="text-sm text-maroon">
-                    {t('afterParty')}
+                    Followed by After Party 🎉
                   </p>
                 </div>
               </div>
 
               <div className="bg-[#f5f3ee] p-4 rounded-xl border border-[#f5f3ee] mt-4">
-                <p className="text-sm text-maroon font-medium">{t('parkingInformation')}</p>
+                <p className="text-sm text-maroon font-medium">Parking Information:</p>
                 <p className="text-sm text-maroon mt-2">
-                  {t('freeParkingAvailable')}
+                  Free parking is available at the hotel. Please follow signs for "Wedding Guest Parking".
                 </p>
               </div>
             </div>
@@ -128,7 +126,7 @@ export default function VenuePage() {
           <div className="h-2 bg-gradient-to-r from-coral via-maroon to-coral"></div>
           <CardHeader className="bg-[#f5f3ee] pb-2">
             <CardTitle className="text-maroon flex items-center gap-2">
-              <Navigation className="h-5 w-5" /> {t('mapAndDirections')}
+              <Navigation className="h-5 w-5" /> Map & Directions
             </CardTitle>
           </CardHeader>
 
@@ -160,7 +158,7 @@ export default function VenuePage() {
                 className="w-full bg-maroon hover:bg-maroon-light text-white rounded-full"
               >
                 <Navigation className="mr-2 h-4 w-4" />
-                {t('openInGoogleMaps')}
+                Open in Google Maps
               </Button>
 
               {isIOS && (
@@ -170,7 +168,7 @@ export default function VenuePage() {
                   className="w-full border-[#f5f3ee] text-maroon hover:bg-[#f5f3ee] rounded-full"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  {t('openInAppleMaps')}
+                  Open in Apple Maps
                 </Button>
               )}
             </div>
@@ -181,29 +179,29 @@ export default function VenuePage() {
         <Card className="border-white/20 border-2 rounded-xl shadow-md mb-10 overflow-hidden bg-white">
           <div className="h-2 bg-gradient-to-r from-maroon to-coral-dark"></div>
           <CardHeader className="bg-[#f5f3ee] pb-2">
-            <CardTitle className="text-maroon">{t('gettingThere')}</CardTitle>
+            <CardTitle className="text-maroon">Getting There</CardTitle>
           </CardHeader>
 
           <CardContent className="pt-4">
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium text-maroon mb-2">{t('byCar')}</h3>
+                <h3 className="font-medium text-maroon mb-2">By Car</h3>
                 <p className="text-sm text-maroon">
-                  {t('byCarDirections')}
+                From downtown Bangkok, head along Rama 3 Road towards the riverside. The MOTIEN Riverside Hotel will be on your right. The venue is located in the Grand Ballroom on the 4th Floor.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-medium text-maroon mb-2">{t('byPublicTransport')}</h3>
+                <h3 className="font-medium text-maroon mb-2">By Public Transport</h3>
                 <p className="text-sm text-maroon">
-                  {t('byPublicTransportDirections')}
+                  Take the BTS to Chong Nonsi Station, then continue by taxi to the MOTIEN Riverside Hotel on Rama 3 Road.
                 </p>
               </div>
 
               <div className="bg-[#f5f3ee] p-4 rounded-xl border border-[#f5f3ee] mt-2">
                 <div className="flex items-start gap-2">
                   <p className="text-sm text-maroon">
-                    {t('contactHotelForAssistance')}
+                  If you have any trouble finding the venue, feel free to contact the hotel staff for assistance.
                     <span className="font-medium"> 02-292-2999</span>.
                   </p>
                 </div>

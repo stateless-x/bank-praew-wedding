@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
-import { useTranslation } from 'react-i18next'
 import {
   Dialog,
   DialogContent,
@@ -41,7 +40,6 @@ interface Message {
 }
 
 export default function BlessingsPage() {
-  const { t } = useTranslation();
   const [name, setName] = useState("")
   const [message, setMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -60,23 +58,23 @@ export default function BlessingsPage() {
       } catch (error) {
         console.error('Error fetching messages:', error)
         toast({
-          title: t('error'),
-          description: t('failedToLoadMessages'),
+          title: "Error",
+          description: "Failed to load messages",
           variant: "destructive",
         })
       }
     }
 
     fetchMessages()
-  }, [toast, t])
+  }, [toast])
 
   const handlePreview = (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!name || !message) {
       toast({
-        title: t('missingInformation'),
-        description: t('pleaseFillNameAndMessage'),
+        title: "Missing information",
+        description: "Please fill in your name and message",
         variant: "destructive",
       })
       return
@@ -120,15 +118,15 @@ export default function BlessingsPage() {
 
       // Show success message
       toast({
-        title: t('blessingSent'),
-        description: t('messageDeliveredToPraewBank'),
+        title: "Blessing sent!",
+        description: "Your message has been delivered to Praew & Bank",
         variant: "default",
       })
     } catch (error) {
       console.error('Error sending message:', error)
       toast({
-        title: t('error'),
-        description: t('failedToSendMessage'),
+        title: "Error",
+        description: "Failed to send your message",
         variant: "destructive",
       })
       setIsSubmitting(false)
@@ -160,9 +158,9 @@ export default function BlessingsPage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-white mb-1">{t('blessingWall')}</h1>
+        <h1 className="text-2xl font-bold text-white mb-1">Blessing Wall</h1>
         <p className="text-md text-white/80 max-w-md mx-auto text-center">
-          {t('shareYourLoveAndWishes')}
+          Share your love and good wishes with Praew & Bank
         </p>
       </header>
 
@@ -176,26 +174,26 @@ export default function BlessingsPage() {
             <form onSubmit={handlePreview} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-maroon">
-                  {t('yourName')}
+                  Your Name
                 </Label>
                 <Input
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder={t('enterYourName')}
+                  placeholder="Enter your name"
                   className="border-[#f5f3ee] focus-visible:ring-maroon"
                 />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-maroon">
-                  {t('yourMessage')}
+                  Your Message 
                 </Label>
                 <Textarea
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder={t('leaveBlessingsHere')}
+                  placeholder="Leave your blessings here.."
                   className="min-h-[100px] border-[#f5f3ee] focus-visible:ring-maroon"
                 />
               </div>
@@ -210,7 +208,7 @@ export default function BlessingsPage() {
                 disabled={!name || !message}
               >
                 <span className="flex items-center">
-                  <Send className="mr-2 h-4 w-4" /> {t('previewAndSend')}
+                  <Send className="mr-2 h-4 w-4" /> Preview & Send
                 </span>
               </Button>
             </form>
@@ -264,7 +262,7 @@ export default function BlessingsPage() {
             ))
           ) : (
             <div className="text-center py-10 bg-white/20 rounded-xl">
-              <p className="text-white">{t('noMessagesFound')}</p>
+              <p className="text-white">No messages found</p>
             </div>
           )}
         </div>
@@ -274,9 +272,9 @@ export default function BlessingsPage() {
       <Dialog open={showConfirmation} onOpenChange={setShowConfirmation}>
         <DialogContent className="sm:max-w-md bg-white border-2 border-[#f5f3ee] rounded-xl">
           <DialogHeader>
-            <DialogTitle className="text-center text-maroon">{t('confirmYourBlessing')}</DialogTitle>
+            <DialogTitle className="text-center text-maroon">Confirm Your Blessing</DialogTitle>
             <DialogDescription className="text-center text-maroon/70">
-              {t('previewMessageAppearance')}
+              Preview how your message will appear on the blessing wall
             </DialogDescription>
           </DialogHeader>
 
@@ -319,7 +317,7 @@ export default function BlessingsPage() {
               className="flex-1 border-[#f5f3ee] text-maroon hover:bg-[#f5f3ee] rounded-full"
               onClick={() => setShowConfirmation(false)}
             >
-              <Edit className="mr-2 h-4 w-4" /> {t('editMessage')}
+              <Edit className="mr-2 h-4 w-4" /> Edit Message
             </Button>
             <Button
               type="button"
@@ -349,11 +347,11 @@ export default function BlessingsPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  {t('sending')}
+                  Sending...
                 </span>
               ) : (
                 <span className="flex items-center">
-                  <Check className="mr-2 h-4 w-4" /> {t('confirmAndSend')}
+                  <Check className="mr-2 h-4 w-4" /> Confirm & Send
                 </span>
               )}
             </Button>

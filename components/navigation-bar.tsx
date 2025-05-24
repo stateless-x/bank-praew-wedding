@@ -2,26 +2,85 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname, useParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { Calendar, Gift, MapPin, HelpCircle, Image, Heart } from "lucide-react"
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from './language-switcher'
 
 export function NavigationBar() {
   const pathname = usePathname()
-  const params = useParams()
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const { t } = useTranslation()
-  const [isMounted, setIsMounted] = useState(false);
+  const [currentLang, setCurrentLang] = useState('th') // Force re-render state
+  const { t, i18n } = useTranslation()
 
-  // Ensure translations are only used after mounting
+  // Use state value for current locale to ensure re-renders
+  const currentLocale = currentLang
+
+  console.log('🔄 NavigationBar render - locale:', currentLocale, 'i18n.language:', i18n.language);
+
+  // Sync currentLang state with i18n.language and force re-renders
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    const updateLanguage = () => {
+      const newLang = i18n.language || 'th';
+      console.log('🔄 NavigationBar - Language change detected:', currentLang, '->', newLang);
+      if (newLang !== currentLang) {
+        setCurrentLang(newLang);
+      }
+    };
 
-  // Get current language from params
-  const currentLocale = (params?.locale as string) || 'th'
+    // Update immediately
+    updateLanguage();
+
+    // Listen for language changes
+    i18n.on('languageChanged', updateLanguage);
+    
+    return () => {
+      i18n.off('languageChanged', updateLanguage);
+    };
+  }, [i18n, currentLang]);
+
+  // Create nav items - these will update when currentLang state changes
+  const navItems = [
+    {
+      name: t("schedule"),
+      href: `/${currentLocale}`,
+      icon: Calendar,
+      emoji: "📅",
+    },
+    {
+      name: t("venue"),
+      href: `/${currentLocale}/venue`,
+      icon: MapPin,
+      emoji: "🏫",
+    },
+    {
+      name: t("gallery"),
+      href: "https://drive.google.com/drive/folders/1VYYBEbXUi8ze4CzioeBBVHcEWd_On3MA?usp=drive_link",
+      icon: Image,
+      emoji: "📸",
+    },
+    {
+      name: t("hongbao"),
+      href: `/${currentLocale}/hongbao`,
+      icon: Gift,
+      emoji: "💰",
+    },
+    {
+      name: t("blessings"),
+      href: `/${currentLocale}/blessings`,
+      icon: Heart,
+      emoji: "💌",
+    },
+    {
+      name: t("qa"),
+      href: `/${currentLocale}/qa`,
+      icon: HelpCircle,
+      emoji: "❓",
+    },
+  ];
+
+  console.log('📋 NavItems:', navItems.map(item => `${item.emoji} ${item.name}`));
 
   // Handle scroll to hide/show navigation on mobile
   useEffect(() => {
@@ -41,47 +100,8 @@ export function NavigationBar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [lastScrollY])
 
-  const navItems = [
-    {
-      name: isMounted ? t("schedule") : "กำหนดการ",
-      href: `/${currentLocale}`,
-      icon: Calendar,
-      emoji: "📅",
-    },
-    {
-      name: isMounted ? t("venue") : "สถานที่จัดงาน",
-      href: `/${currentLocale}/venue`,
-      icon: MapPin,
-      emoji: "🏫",
-    },
-    {
-      name: isMounted ? t("gallery") : "แกลเลอรี",
-      href: "https://drive.google.com/drive/folders/1VYYBEbXUi8ze4CzioeBBVHcEWd_On3MA?usp=drive_link",
-      icon: Image,
-      emoji: "📸",
-    },
-    {
-      name: isMounted ? t("hongbao") : "ซองแดง",
-      href: `/${currentLocale}/hongbao`,
-      icon: Gift,
-      emoji: "💰",
-    },
-    {
-      name: isMounted ? t("blessings") : "คำอวยพรจากใจ",
-      href: `/${currentLocale}/blessings`,
-      icon: Heart,
-      emoji: "💌",
-    },
-    {
-      name: isMounted ? t("qa") : "ถาม-ตอบ",
-      href: `/${currentLocale}/qa`,
-      icon: HelpCircle,
-      emoji: "❓",
-    },
-  ]
-
   return (
-    <>
+    <div key={`nav-${currentLocale}`}>
       {/* Language switcher - fixed top right */}
       <div className="fixed top-4 right-4 z-50">
         <LanguageSwitcher />
@@ -96,7 +116,7 @@ export function NavigationBar() {
       >
         <div className="h-1 bg-gradient-to-r from-maroon via-coral to-maroon absolute top-0 left-0 right-0"></div>
         <div className="flex justify-around items-center max-w-md mx-auto">
-          {navItems.map((item) => {
+          {navItems.map((item, index) => {
             const isActive =
               pathname === item.href ||
               (item.href === `/${currentLocale}` && pathname === `/${currentLocale}`) ||
@@ -104,7 +124,7 @@ export function NavigationBar() {
 
             return (
               <Link
-                key={item.name}
+                key={`${item.emoji}-${index}-${currentLocale}`}
                 href={item.href}
                 className={`flex flex-col items-center py-2 px-1 ${
                   isActive ? "text-maroon" : "text-gray hover:text-maroon-light"
@@ -120,6 +140,6 @@ export function NavigationBar() {
           })}
         </div>
       </nav>
-    </>
+    </div>
   )
 }

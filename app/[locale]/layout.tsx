@@ -1,5 +1,6 @@
 import type React from "react"
 import { notFound } from "next/navigation"
+import { I18nProvider } from "@/components/i18n-provider"
 
 // Define the available locales
 const locales = ['th', 'en'] as const
@@ -25,8 +26,10 @@ export default async function LocaleLayout({
   }
 
   return (
-    <>
-      {children}
-    </>
+    <I18nProvider>
+      <div key={locale}>
+        {children}
+      </div>
+    </I18nProvider>
   )
 } 

@@ -1,13 +1,8 @@
-"use client"
-
 import { PromotionalBanner } from "@/components/promotional-banner"
 import { Heart, HelpCircle } from "lucide-react"
 import Link from "next/link"
-import { useTranslation } from 'react-i18next'
 
 export default function QAPage() {
-  const { t } = useTranslation();
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-20" data-theme="wedding">
       {/* Floating decorations */}
@@ -33,8 +28,8 @@ export default function QAPage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-white mb-1">{t('qa')}</h1>
-        <p className="text-sm text-white/80 max-w-md mx-auto">{t('everythingYouNeedToKnow')}</p>
+        <h1 className="text-2xl font-bold text-white mb-1">Questions & Answers</h1>
+        <p className="text-sm text-white/80 max-w-md mx-auto">Everything you need to know about our special day</p>
       </header>
 
       {/* Main content */}
@@ -43,40 +38,40 @@ export default function QAPage() {
           <div className="h-2 bg-gradient-to-r from-maroon via-coral to-maroon"></div>
           <div className="card-body p-4">
             <h2 className="card-title text-maroon flex items-center gap-2 text-lg mb-4">
-              <HelpCircle className="h-4 w-4" /> {t('frequentlyAskedQuestions')}
+              <HelpCircle className="h-4 w-4" /> Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked />
-                <div className="collapse-title font-medium text-sm text-maroon">{t('whatShouldIWear')}</div>
+                <div className="collapse-title font-medium text-sm text-maroon">What should I wear?</div>
                 <div className="collapse-content text-sm text-maroon">
-                  <p className="mb-3">{t('pleaseDressInWeddingColors')}</p>
+                  <p className="mb-3">Please dress in the wedding colors:</p>
                   <div className="flex flex-wrap gap-3 mb-3">
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-[#761213] shadow-md"></div>
-                      <span className="text-xs mt-1 text-maroon">{t('maroon')}</span>
+                      <span className="text-xs mt-1 text-maroon">Maroon</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-[#beb09b] shadow-md"></div>
-                      <span className="text-xs mt-1 text-maroon">{t('taupe')}</span>
+                      <span className="text-xs mt-1 text-maroon">Taupe</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-[#b0b1b0] shadow-md"></div>
-                      <span className="text-xs mt-1 text-maroon">{t('gray')}</span>
+                      <span className="text-xs mt-1 text-maroon">Gray</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-[#ec8b8a] shadow-md"></div>
-                      <span className="text-xs mt-1 text-maroon">{t('coral')}</span>
+                      <span className="text-xs mt-1 text-maroon">Coral</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-[#d68471] shadow-md"></div>
-                      <span className="text-xs mt-1 text-maroon">{t('darkCoral')}</span>
+                      <span className="text-xs mt-1 text-maroon">Dark Coral</span>
                     </div>
                   </div>
                   <div className="bg-[#f5f3ee] py-3 rounded-lg mt-3">
                     <p className="text-sm text-maroon">
-                      {t('formalOrSemiFormal')}
+                      Formal or semi-formal clothing is perfect.<br/> Suits or any outfit you’re comfortable in are welcome. Avoid white (reserved for the bride) and all-black outfits.
                     </p>
                   </div>
                 </div>
@@ -84,50 +79,51 @@ export default function QAPage() {
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">{t('doYouHaveAGiftRegistry')}</div>
+                <div className="collapse-title font-medium text-sm text-maroon">Do you have a gift registry?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    {t('yourPresenceIsOurPresent')}
+                    Your presence is our present! However, if you wish to give a gift, we also have a digital hongbao (red envelope)
+                    option too.
                   </p>
                   <Link
                     href="/hongbao"
                     className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-4 normal-case rounded-full"
                   >
-                    {t('sendDigitalEnvelope')}
+                    Send Digital Envelope
                   </Link>
                 </div>
               </div>
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">{t('isThereParkingAtTheVenue')}</div>
+                <div className="collapse-title font-medium text-sm text-maroon">Is there parking at the venue?</div>
                 <div className="collapse-content text-sm text-maroon">
-                  <p>{t('yesFreeParking')}</p>
+                  <p>Yes, free parking is available at the hotel.</p>
                   <Link
                     href="/venue"
                     className="btn btn-sm bg-maroon hover:bg-maroon-light border-none text-white mt-4 normal-case rounded-full"
                   >
-                    {t('venueDetails')}
+                    Venue Details
                   </Link>
                 </div>
               </div>
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">{t('canIBringAPlusOne')}</div>
+                <div className="collapse-title font-medium text-sm text-maroon">Can I bring a plus one?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    {t('ofCoursePlusOne')} 🤝 
+                    Of course! We'd love to have you bring a plus one. 🤝 
                   </p>
                 </div>
               </div>
 
               <div className="collapse collapse-arrow bg-[#f5f3ee] rounded-xl border border-[#f5f3ee]">
                 <input type="checkbox" defaultChecked={false} />
-                <div className="collapse-title font-medium text-sm text-maroon">{t('whatsTheStyleOfTheEvent')}</div>
+                <div className="collapse-title font-medium text-sm text-maroon">What's the style of the event you are hosting?</div>
                 <div className="collapse-content text-sm text-maroon">
                   <p>
-                    {t('cocktailStyleCelebration')} 🥂
+                    We are hosting a cocktail-style celebration 🥂
                   </p>
                 </div>
               </div>
@@ -196,22 +192,22 @@ export default function QAPage() {
         <div className="card bg-white shadow-md mb-10 overflow-hidden border-2 border-white/20 rounded-2xl">
           <div className="h-2 bg-gradient-to-r from-coral to-maroon"></div>
           <div className="card-body p-4">
-            <h2 className="card-title text-maroon text-lg mb-2">{t('stillHaveQuestions')}</h2>
+            <h2 className="card-title text-maroon text-lg mb-2">Still Have Questions?</h2>
             <p className="text-sm text-maroon mb-3">
-              {t('ifYouHaveAnyOtherQuestions')}
+              If you have any other questions or need assistance, please don't hesitate to contact us:
             </p>
             <div className="flex flex-col gap-2">
               <a
                 href="tel:0626541493"
                 className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
-                {t('callPraew')} 062-654-1493
+                Call Praew: 062-654-1493
               </a>
               <a
                 href="tel:0979639929"
                 className="btn btn-md bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
               >
-                {t('callBank')} 097-963-9929
+                Call Bank: 097-963-9929
               </a>
             </div>
           </div>
