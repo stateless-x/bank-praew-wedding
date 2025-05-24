@@ -8,7 +8,23 @@ import { useTranslation } from 'react-i18next'
 import { FloatingDecorations } from '@/components/floating-decorations'
 
 export default function QAPage() {
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Don't render content until i18n is ready and we're on client
+  if (!ready || !isClient) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-20" data-theme="wedding">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-white">Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-20" data-theme="wedding" suppressHydrationWarning>
@@ -122,6 +138,40 @@ export default function QAPage() {
                   </p>
                 </div>
               </div>
+
+              <div className="collapse collapse-arrow bg-gradient-to-r from-[#f5f3ee] to-[#fff5f5] rounded-xl border-2 border-coral/30 shadow-sm">
+                <input type="checkbox" defaultChecked={true} />
+                <div className="collapse-title font-medium text-sm text-maroon flex items-center gap-2">
+                  <span className="text-lg">🌟</span>
+                  {t('wantThisWebsite')}
+                </div>
+                <div className="collapse-content text-sm text-maroon">
+                  <p className="font-medium">
+                    {t('contactDevAnswers')}
+                  </p>
+                  <ul>
+                    <li className="pt-2">
+                      <a
+                        href="https://line.me/ti/p/Fwwa7wKrJQ#~"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex align-center btn btn-sm border-none text-white normal-case rounded-full inline-block mt-1"
+                        style={{ backgroundColor: '#32CD32' }}
+                      >
+                        💬 LINE: bobroach
+                      </a>
+                    </li>
+                    <li className="py-2">
+                      <a
+                        href="tel:0845344560"
+                        className="flex align-center btn btn-sm bg-coral hover:bg-coral-light border-none text-white normal-case rounded-full inline-block mt-1"
+                      >
+                        📞 084-534-4560
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -183,7 +233,6 @@ export default function QAPage() {
           </div>
         </div> */}
 
-        {/* Additional Questions */}
         <div className="card bg-white shadow-md mb-10 overflow-hidden border-2 border-white/20 rounded-2xl">
           <div className="h-2 bg-gradient-to-r from-coral to-maroon"></div>
           <div className="card-body p-4">

@@ -88,6 +88,8 @@ const resources = {
       "ifYouHaveAnyOtherQuestions": "มีคำถามเพิ่มเติมหรืออยากปรึกษาอะไรก็ทักมาได้เลยน้า:",
       "sendDigitalEnvelope": "ใส่ซองแบบดิจิทัล",
       "venueDetails": "รายละเอียดสถานที่",
+      "wantThisWebsite": "อยากมีเว็บสวยๆ แบบนี้ต้องทำไงอะ?",
+      "contactDevAnswers": "ทักคุณภูโลดด เริ่มต้นแค่ 3,500 บาทเอง!",
 
       // Blessings Page
       "shareYourLoveAndWishes": "ส่งความรักและคำอวยพรให้แพรว & แบงค์กันนน",
@@ -108,6 +110,7 @@ const resources = {
       "messageDeliveredToPraewBank": "ข้อความของคุณถึงแพรว & แบงค์เรียบร้อยแล้วนะ",
       "failedToLoadMessages": "โหลดข้อความไม่ขึ้นเลย แป๊บนะ",
       "failedToSendMessage": "ส่งไม่สำเร็จ ลองใหม่อีกทีน้า",
+
 
       // Venue Page
       "weddingVenue": "สถานที่จัดงานแต่ง",
@@ -221,6 +224,8 @@ const resources = {
       "ifYouHaveAnyOtherQuestions": "If you have any other questions or need assistance, please don't hesitate to contact us:",
       "sendDigitalEnvelope": "Send Digital Envelope",
       "venueDetails": "Venue Details",
+      "wantThisWebsite": "Wanna have a cute website like this?",
+      "contactDevAnswers": "Just hit up Pooh — starting from only 3,500 THB!",
 
       // Blessings Page
       "shareYourLoveAndWishes": "Share your love and good wishes with Praew & Bank",
