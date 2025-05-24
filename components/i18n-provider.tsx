@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import '@/lib/i18n'
@@ -8,6 +8,7 @@ import '@/lib/i18n'
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const params = useParams()
   const { i18n } = useTranslation()
+  const [isHydrated, setIsHydrated] = useState(false)
   
   // Get locale from params (for dynamic routes) or fallback to default
   const locale = (params?.locale as string) || 'th'
@@ -15,6 +16,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   console.log('🏗️ I18nProvider render - locale:', locale, 'i18n.language:', i18n.language, 'i18n.isInitialized:', i18n.isInitialized);
 
   useEffect(() => {
+    setIsHydrated(true)
+    
     // Only change language if it's different and valid
     if (['th', 'en'].includes(locale) && i18n.language !== locale) {
       console.log('🔄 I18nProvider: Changing language from', i18n.language, 'to', locale)
@@ -31,9 +34,12 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }, [locale, i18n])
 
-  // Simple re-render with locale key - let React handle the re-rendering
+  // Simple re-render with hydration safety
   return (
-    <div key={`i18n-${locale}`} className="min-h-screen">
+    <div 
+      suppressHydrationWarning 
+      className="min-h-screen"
+    >
       {children}
     </div>
   )

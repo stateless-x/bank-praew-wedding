@@ -1,16 +1,17 @@
+'use client'
 import { useParams, usePathname } from 'next/navigation';
 
 export function useLocale() {
   const params = useParams();
   const pathname = usePathname();
 
-  // Consistent locale detection logic
+  // Simple, direct locale detection
   const getLocale = (): 'th' | 'en' => {
     // First, check the URL pathname for explicit locale
-    if (pathname.startsWith('/en')) {
+    if (pathname?.startsWith('/en')) {
       return 'en';
     }
-    if (pathname.startsWith('/th')) {
+    if (pathname?.startsWith('/th')) {
       return 'th';
     }
     

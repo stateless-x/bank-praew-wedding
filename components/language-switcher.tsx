@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePathname, useRouter } from 'next/navigation';
 import { Globe } from 'lucide-react';
@@ -11,6 +11,12 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Hydration safety
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const languages = [
     { code: 'th', name: t('thai') || 'ไทย', flag: '🇹🇭' },
@@ -22,6 +28,23 @@ export function LanguageSwitcher() {
   const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
 
   console.log('🌐 LanguageSwitcher render - currentLocale:', currentLocale, 'i18n.language:', i18n.language);
+
+  // Show loading state during hydration
+  if (!isHydrated) {
+    return (
+      <div className="relative z-50">
+        <button
+          disabled
+          className="flex items-center space-x-2 p-2 rounded-lg bg-white/20 backdrop-blur-sm opacity-50"
+          aria-label="Loading..."
+          type="button"
+        >
+          <Globe className="w-4 h-4 text-white" />
+          <span className="text-sm font-medium text-white">🇹🇭</span>
+        </button>
+      </div>
+    );
+  }
 
   const handleLanguageChange = async (langCode: string) => {
     console.log('🔄 Language change:', currentLocale, '->', langCode);

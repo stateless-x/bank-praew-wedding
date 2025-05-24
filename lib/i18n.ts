@@ -270,6 +270,12 @@ i18n.use(initReactI18next).init({
   },
   initImmediate: false, // Allow for proper initialization in SSR
   debug: false, // Set to true for development debugging
+  
+  // Additional hydration safety
+  compatibilityJSON: 'v4',
+  
+  // Ensure consistent behavior between server and client
+  load: 'languageOnly',
 });
 
 export default i18n;

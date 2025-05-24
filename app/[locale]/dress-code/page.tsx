@@ -1,29 +1,19 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Heart, Sparkles, Check } from "lucide-react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import { FloatingDecorations } from '@/components/floating-decorations'
 
 export default function DressCodePage() {
   const [selectedGender, setSelectedGender] = useState<"ladies" | "gentlemen" | null>(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cream-100 via-cream-100 to-coral-100 pb-6" data-theme="wedding">
+    <div className="min-h-screen bg-gradient-to-b from-cream-100 via-cream-100 to-coral-100 pb-6" data-theme="wedding" suppressHydrationWarning>
       {/* Floating decorations */}
-      <div className="fixed top-10 left-5 text-2xl animate-float" style={{ animationDelay: "0.5s" }}>
-        🌸
-      </div>
-      <div className="fixed top-20 right-10 text-2xl animate-float" style={{ animationDelay: "1.2s" }}>
-        💕
-      </div>
-      <div className="fixed bottom-20 left-8 text-2xl animate-float" style={{ animationDelay: "0.8s" }}>
-        🌺
-      </div>
-      <div className="fixed bottom-40 right-5 text-2xl animate-float" style={{ animationDelay: "1.5s" }}>
-        💖
-      </div>
+      <FloatingDecorations />
 
       {/* Header */}
       <header className="pt-8 pb-6 px-4 text-center">

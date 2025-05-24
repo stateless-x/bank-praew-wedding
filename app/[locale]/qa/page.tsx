@@ -1,28 +1,19 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { PromotionalBanner } from "@/components/promotional-banner"
 import { Heart, HelpCircle } from "lucide-react"
 import Link from "next/link"
 import { useTranslation } from 'react-i18next'
+import { FloatingDecorations } from '@/components/floating-decorations'
 
 export default function QAPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-20" data-theme="wedding">
+    <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-20" data-theme="wedding" suppressHydrationWarning>
       {/* Floating decorations */}
-      <div className="fixed top-10 left-5 text-2xl animate-float" style={{ animationDelay: "0.5s" }}>
-        🌸
-      </div>
-      <div className="fixed top-20 right-10 text-2xl animate-float" style={{ animationDelay: "1.2s" }}>
-        💕
-      </div>
-      <div className="fixed bottom-20 left-8 text-2xl animate-float" style={{ animationDelay: "0.8s" }}>
-        🌺
-      </div>
-      <div className="fixed bottom-40 right-5 text-2xl animate-float" style={{ animationDelay: "1.5s" }}>
-        💖
-      </div>
+      <FloatingDecorations />
 
       {/* Header */}
       <header className="pt-8 pb-6 px-4 text-center">

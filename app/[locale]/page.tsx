@@ -15,44 +15,19 @@ import Image from "next/image";
 import { PromotionalBanner } from "@/components/promotional-banner";
 import { useTranslation } from 'react-i18next';
 import { useLocale } from '@/lib/use-locale';
+import { FloatingDecorations } from '@/components/floating-decorations';
+import { ClientOnly } from '@/components/client-only';
 
-export default function WeddingInvitation() {
+function WeddingContent() {
   const { t } = useTranslation();
   
   // Use centralized locale detection
   const locale = useLocale();
 
   return (
-    <div
-      key={locale}
-      className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223]"
-      data-theme="wedding"
-    >
+    <>
       {/* Floating decorations */}
-      <div
-        className="fixed top-10 left-5 text-2xl animate-float"
-        style={{ animationDelay: "0.5s" }}
-      >
-        🌸
-      </div>
-      <div
-        className="fixed top-20 right-10 text-2xl animate-float"
-        style={{ animationDelay: "1.2s" }}
-      >
-        💕
-      </div>
-      <div
-        className="fixed bottom-20 left-8 text-2xl animate-float"
-        style={{ animationDelay: "0.8s" }}
-      >
-        🌺
-      </div>
-      <div
-        className="fixed bottom-40 right-5 text-2xl animate-float"
-        style={{ animationDelay: "1.5s" }}
-      >
-        💖
-      </div>
+      <FloatingDecorations />
 
       {/* Header with cute elements */}
       <header className="pt-12 pb-6 px-4 text-center relative">
@@ -77,7 +52,7 @@ export default function WeddingInvitation() {
         <div className="mt-6 max-w-[26.5rem] mx-auto bg-white/90 p-4 rounded-xl border-2 border-dashed border-white/30">
           <div className="pb-4">
             <Image
-              src="pb-home-v2.png"
+              src="/pb-home-v2.png"
               alt="Praew & Bank Wedding"
               width={1000}
               height={1000}
@@ -248,6 +223,26 @@ export default function WeddingInvitation() {
           <PromotionalBanner />
         </div>
       </main>
+    </>
+  );
+}
+
+export default function WeddingInvitation() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223]" data-theme="wedding">
+      <ClientOnly 
+        fallback={
+          <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] flex items-center justify-center">
+            <div className="text-white text-center">
+              <div className="text-6xl mb-4 animate-pulse">囍</div>
+              <p className="text-xl font-medium">Praew & Bank</p>
+              <p className="text-sm opacity-80 mt-2">Loading...</p>
+            </div>
+          </div>
+        }
+      >
+        <WeddingContent />
+      </ClientOnly>
     </div>
   );
 }

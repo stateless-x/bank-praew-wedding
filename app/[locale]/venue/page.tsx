@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
 import { PromotionalBanner } from "@/components/promotional-banner"
 import { useTranslation } from 'react-i18next'
+import { FloatingDecorations } from '@/components/floating-decorations'
 
 export default function VenuePage() {
   const { t } = useTranslation()
   const { isMobile, isIOS } = useMobile()
   const [isMapLoaded, setIsMapLoaded] = useState(false)
-
+  
   // Venue coordinates
   const venueName = t('venueName')
   const venueAddress = t('venueAddress')
@@ -39,20 +40,9 @@ export default function VenuePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-6" data-theme="wedding">
+    <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-6" data-theme="wedding" suppressHydrationWarning>
       {/* Floating decorations */}
-      <div className="fixed top-10 left-5 text-2xl animate-float" style={{ animationDelay: "0.5s" }}>
-        🌸
-      </div>
-      <div className="fixed top-20 right-10 text-2xl animate-float" style={{ animationDelay: "1.2s" }}>
-        💕
-      </div>
-      <div className="fixed bottom-20 left-8 text-2xl animate-float" style={{ animationDelay: "0.8s" }}>
-        🌺
-      </div>
-      <div className="fixed bottom-40 right-5 text-2xl animate-float" style={{ animationDelay: "1.5s" }}>
-        💖
-      </div>
+      <FloatingDecorations />
 
       {/* Header */}
       <header className="pt-8 pb-6 px-4 text-center">
