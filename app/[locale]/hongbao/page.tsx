@@ -7,8 +7,11 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { PromotionalBanner } from "@/components/promotional-banner"
 import { FloatingDecorations } from '@/components/floating-decorations'
+import { useTranslation } from 'react-i18next'
 
 export default function HongbaoPage() {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#761213] via-[#761213] to-[#8a2223] pb-6" data-theme="wedding" suppressHydrationWarning>
       {/* Floating decorations */}
@@ -23,9 +26,9 @@ export default function HongbaoPage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-white mb-1">Digital Envelope 💖</h1>
+        <h1 className="text-2xl font-bold text-white mb-1">{t('digitalEnvelope')} 💖</h1>
         <p className="text-md text-white/80 max-w-md mx-auto text-center">
-          Scan the QR code below to send us a digital hongbao!
+          {t('digitalEnvelopeDescription')}
         </p>
       </header>
 
@@ -41,7 +44,7 @@ export default function HongbaoPage() {
               <div className="w-full h-full p-4 bg-white rounded-lg shadow-sm border-2 border-[#f5f3ee]">
                 <Image
                   src="/preaw-qr.png?height=240&width=240"
-                  alt="Payment QR Code"
+                  alt={t('paymentQRCode')}
                   width={240}
                   height={240}
                   className="w-full h-full object-contain"
@@ -50,11 +53,11 @@ export default function HongbaoPage() {
             </div>
 
             <div className="text-center mt-6 space-y-2">
-              <p className="text-md font-medium text-maroon">PromptPay</p>
+              <p className="text-md font-medium text-maroon">{t('promptPay')}</p>
               <p className="text-md text-maroon">Chunita Wongwiboonrath</p>
               <div className="flex items-center justify-center gap-2 mt-4">
                 <Sparkles className="h-3 w-3 text-coral" />
-                <p className="text-sm text-maroon">Thank you for your support.<br/> We really appreciate it!</p>
+                <p className="text-sm text-maroon whitespace-pre-line">{t('thankYouForSupport')}</p>
                 <Sparkles className="h-3 w-3 text-coral" />
               </div>
             </div>

@@ -47,7 +47,7 @@ function WeddingContent() {
           <div className="absolute -bottom-2 left-0 right-0 h-3 bg-white opacity-30 rounded-full -z-0"></div>
         </div>
 
-        <p className="text-white mt-2 font-medium text-lg">25 May 2025</p>
+        <p className="text-white mt-2 font-medium text-lg">{t('weddingDate')}</p>
 
         <div className="mt-6 max-w-[26.5rem] mx-auto bg-white/90 p-4 rounded-xl border-2 border-dashed border-white/30">
           <div className="pb-4">

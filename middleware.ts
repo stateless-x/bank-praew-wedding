@@ -39,7 +39,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   // Only run middleware on pages, not on API routes or static files
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)/',
+    '/((?!api|_next/static|_next/image|favicon.svg|.*\\..*).*)/',
     '/'
   ],
 } 

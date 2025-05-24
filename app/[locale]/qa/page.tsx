@@ -196,13 +196,13 @@ export default function QAPage() {
                 href="tel:0626541493"
                 className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full"
               >
-                {t('callPraew')} 062-654-1493
+                {t('callPraew')}
               </a>
               <a
                 href="tel:0979639929"
                 className="btn btn-md bg-coral-dark hover:bg-coral border-none text-white normal-case rounded-full"
               >
-                {t('callBank')} 097-963-9929
+                {t('callBank')}
               </a>
             </div>
           </div>
