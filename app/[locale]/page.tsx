@@ -92,7 +92,7 @@ function WeddingContent() {
               {t('blessingWallDescription')}
             </p>
             <Link
-              href="/hongbao?tab=blessings"
+              href={`/${locale}/blessings`}
               className="btn btn-md bg-maroon hover:bg-maroon-light border-none text-white normal-case rounded-full w-full"
             >
               {t('sendYourBlessing')}
